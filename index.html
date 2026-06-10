@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>H2 Evidence Explorer — free embeddable widget (live demo)</title>
+  <meta name="description" content="Live demo of the free, always-current H2 Evidence Explorer widget. See exactly how it looks embedded, then copy one line of code to put it on your own site.">
+  <link rel="icon" href="https://h2medicine.org/favicon.svg" type="image/svg+xml">
+  <style>
+    :root { --green:#165e1c; --green-d:#0f4715; --green-l:#e6f1e7; --ink:#1f2937; --muted:#5b6470; --line:#dfe3e8; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink); line-height:1.6; background:#fff; }
+    .wrap { max-width:1100px; margin:0 auto; padding:28px 20px 64px; }
+    header { border-bottom:3px solid var(--green); padding-bottom:16px; margin-bottom:8px; }
+    h1 { font-size:2rem; margin:0 0 .3rem; letter-spacing:-.5px; }
+    h1 .h2 { color:#0f4c81; } h1 em { font-style:normal; color:var(--green); }
+    .sub { color:var(--muted); font-size:1.05rem; margin:.2rem 0 0; max-width:760px; }
+    .badges { margin:14px 0 0; display:flex; flex-wrap:wrap; gap:8px; }
+    .badge { font-size:.82rem; font-weight:700; border:2px solid var(--green); color:var(--green-d); background:var(--green-l); border-radius:999px; padding:5px 14px; }
+    .cta { margin:18px 0 6px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+    a.btn { display:inline-block; background:var(--green); color:#fff; text-decoration:none; font-weight:700; border-radius:10px; padding:10px 18px; }
+    a.btn.alt { background:#fff; color:var(--green-d); border:2px solid var(--green); padding:8px 16px; }
+    a.btn:hover { background:var(--green-d); }
+    h2.section { font-size:1.3rem; margin:36px 0 10px; color:#0f4c81; border-bottom:1px solid var(--line); padding-bottom:8px; }
+    .demo-label { font-weight:700; color:var(--green-d); margin:0 0 8px; }
+    .frame { border:2px solid var(--green); border-radius:14px; overflow:hidden; background:#f4f7f9; box-shadow:0 8px 24px rgba(15,76,129,.06); }
+    .frame iframe { display:block; width:100%; min-height:760px; height:760px; border:0; }
+    pre { background:#0f172a; color:#e2e8f0; border-radius:10px; padding:16px 18px; overflow:auto; font-size:.9rem; line-height:1.55; }
+    code { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+    .grid { display:flex; flex-wrap:wrap; gap:10px; }
+    .grid a { flex:1 1 220px; border:2px solid var(--line); border-radius:10px; padding:12px 14px; text-decoration:none; color:var(--ink); font-weight:600; }
+    .grid a:hover { border-color:var(--green); background:var(--green-l); }
+    .note { background:#fff8e6; border:1px solid #e9d8a6; border-radius:10px; padding:12px 16px; font-size:.92rem; color:#6b5900; margin:26px 0 0; }
+    footer { margin-top:40px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; }
+    footer a { color:var(--green-d); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1><span class="h2">H2</span> <em>Evidence Explorer</em> — live demo</h1>
+      <p class="sub">This is exactly how the free, always-current overview of human studies on
+        <strong>molecular hydrogen (H₂)</strong> looks when you embed it. One line of code, on your own site,
+        updates itself, links back to the source. Ad-free. No tracking. Not medical advice.</p>
+      <div class="badges">
+        <span class="badge">Free &amp; open</span>
+        <span class="badge">Always current</span>
+        <span class="badge">Zero maintenance</span>
+        <span class="badge">Bilingual DE / EN</span>
+      </div>
+      <div class="cta">
+        <a class="btn" href="https://h2medicine.org/hydrogen-therapy-studies-widget/">Get the embed code</a>
+        <a class="btn alt" href="https://h2medicine.org">h2medicine.org</a>
+        <a class="btn alt" href="https://h2medizin.org">h2medizin.org (DE)</a>
+        <a class="btn alt" href="https://github.com/Aitomat/h2-evidence-explorer">Source on GitHub</a>
+      </div>
+    </header>
+
+    <h2 class="section">Live, embedded right here</h2>
+    <p class="demo-label">↓ The widget below is the real thing, loaded live from h2medicine.org — try the search, the filters, and the “Map” tab.</p>
+    <div class="frame">
+      <iframe id="h2ee" src="https://h2medicine.org/widget/" title="H2 Evidence Explorer"
+              loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <h2 class="section">Copy this — that’s all it takes</h2>
+    <p>Paste this where you want the explorer to appear. Please keep the source credit line.</p>
+    <pre><code>&lt;iframe src="https://h2medicine.org/widget/"
+        style="width:100%;border:0;height:720px"
+        title="H2 Evidence Explorer" loading="lazy"&gt;&lt;/iframe&gt;
+&lt;p style="font-size:13px"&gt;Data: &lt;a href="https://h2medicine.org/"&gt;H2Medicine&lt;/a&gt;&lt;/p&gt;</code></pre>
+    <p>German site? Use <code>https://h2medizin.org/widget/</code>. Want a single topic only? Append
+       <code>?indication=respiratory</code>, <code>?method=inhalation</code>, <code>?ev=3</code>, <code>?human=1</code>,
+       or <code>?titlelink=off</code>. Full instructions &amp; auto-height variant on the
+       <a href="https://h2medicine.org/hydrogen-therapy-studies-widget/">widget page</a> and in the
+       <a href="https://github.com/Aitomat/h2-evidence-explorer#readme">README</a>.</p>
+
+    <h2 class="section">More examples</h2>
+    <div class="grid">
+      <a href="examples/iframe-en.html">English embed example →</a>
+      <a href="examples/iframe-de.html">Deutsches Einbettungs-Beispiel →</a>
+      <a href="examples/mini-embed.html">Topic-only mini embed →</a>
+    </div>
+
+    <p class="note"><strong>For information only — not medical advice.</strong> This is a research overview for
+      education. Always consult a qualified healthcare professional.</p>
+
+    <footer>
+      The data, curation and build pipeline stay private; the embed is free and open so anyone can spread access to
+      the underlying science. Curated by Karl Heinz Asenbaum. ·
+      <a href="https://github.com/Aitomat/h2-evidence-explorer">github.com/Aitomat/h2-evidence-explorer</a>
+    </footer>
+  </div>
+
+  <!-- Auto-size the embedded widget to its content -->
+  <script>
+    window.addEventListener('message', function (e) {
+      if (e.origin !== 'https://h2medicine.org' && e.origin !== 'https://h2medizin.org') return;
+      var f = document.getElementById('h2ee');
+      if (!f || e.source !== f.contentWindow) return;
+      if (e.data && e.data.type === 'h2widget:height') {
+        var h = parseInt(e.data.height, 10);
+        if (h > 0) f.style.height = Math.max(h, 760) + 'px';
+      }
+    });
+  </script>
+</body>
+</html>

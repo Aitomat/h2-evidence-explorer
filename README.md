@@ -3,6 +3,8 @@
 A free, always-current overview of human studies on **molecular hydrogen (H₂)**, ready to drop into any website with a single `<iframe>`.
 
 > **Live:** [h2medicine.org](https://h2medicine.org) (English) · [h2medizin.org](https://h2medizin.org) (Deutsch)
+>
+> **▶ See it embedded (live demo):** [aitomat.github.io/h2-evidence-explorer](https://aitomat.github.io/h2-evidence-explorer/)
 
 ---
 
