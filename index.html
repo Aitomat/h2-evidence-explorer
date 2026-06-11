@@ -23,6 +23,12 @@
     a.btn:hover { background:var(--green-d); }
     h2.section { font-size:1.3rem; margin:36px 0 10px; color:#0f4c81; border-bottom:1px solid var(--line); padding-bottom:8px; }
     .demo-label { font-weight:700; color:var(--green-d); margin:0 0 8px; }
+    .modes { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 8px; }
+    .mode { appearance:none; border:2px solid var(--green); background:#fff; color:var(--green-d); font-weight:700; font-size:.9rem; border-radius:999px; padding:7px 16px; cursor:pointer; transition:.15s; }
+    .mode:hover { background:var(--green-l); }
+    .mode.on { background:var(--green); color:#fff; }
+    .modes-note { font-size:.92rem; color:var(--muted); margin:0 0 12px; }
+    .modes-note code { background:#eef3f6; border-radius:5px; padding:1px 6px; font-size:.85em; }
     .frame { border:2px solid var(--green); border-radius:14px; overflow:hidden; background:#f4f7f9; box-shadow:0 8px 24px rgba(15,76,129,.06); }
     .frame iframe { display:block; width:100%; min-height:760px; height:760px; border:0; }
     pre { background:#0f172a; color:#e2e8f0; border-radius:10px; padding:16px 18px; overflow:auto; font-size:.9rem; line-height:1.55; }
@@ -58,6 +64,14 @@
 
     <h2 class="section">Live, embedded right here</h2>
     <p class="demo-label">↓ The widget below is the real thing, loaded live from h2medicine.org — try the search, the filters, and the “Map” tab.</p>
+    <div class="modes" role="group" aria-label="Title link mode">
+      <button class="mode on" data-mode="on" type="button">Titles link to the study pages (default)</button>
+      <button class="mode" data-mode="off" type="button">Titles not linked — PubMed / DOI only</button>
+    </div>
+    <p class="modes-note">You choose when you embed: by default each study title links to the full source page
+      (gives your readers context — and credits the source; opens in a new tab, so it never pulls visitors off
+      <em>your</em> page). Prefer titles not to link out? Embed <code>…/widget/?titlelink=off</code> — the
+      <strong>PubMed</strong> &amp; <strong>DOI</strong> buttons stay clickable either way.</p>
     <div class="frame">
       <iframe id="h2ee" src="https://h2medicine.org/widget/" title="H2 Evidence Explorer"
               loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -103,6 +117,20 @@
         if (h > 0) f.style.height = Math.max(h, 760) + 'px';
       }
     });
+
+    // Toggle: switch the live widget between "titles link out" (default) and "titlelink=off".
+    (function () {
+      var f = document.getElementById('h2ee');
+      document.querySelectorAll('.mode').forEach(function (b) {
+        b.addEventListener('click', function () {
+          document.querySelectorAll('.mode').forEach(function (x) { x.classList.remove('on'); });
+          b.classList.add('on');
+          f.src = b.getAttribute('data-mode') === 'off'
+            ? 'https://h2medicine.org/widget/?titlelink=off'
+            : 'https://h2medicine.org/widget/';
+        });
+      });
+    })();
   </script>
 </body>
 </html>
