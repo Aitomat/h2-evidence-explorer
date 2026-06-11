@@ -106,18 +106,8 @@
     </footer>
   </div>
 
-  <!-- Auto-size the embedded widget to its content -->
+  <!-- The embedded widget keeps a fixed height (scrolls internally) — the compact look. -->
   <script>
-    window.addEventListener('message', function (e) {
-      if (e.origin !== 'https://h2medicine.org' && e.origin !== 'https://h2medizin.org') return;
-      var f = document.getElementById('h2ee');
-      if (!f || e.source !== f.contentWindow) return;
-      if (e.data && e.data.type === 'h2widget:height') {
-        var h = parseInt(e.data.height, 10);
-        if (h > 0) f.style.height = Math.max(h, 760) + 'px';
-      }
-    });
-
     // Toggle: switch the live widget between "titles link out" (default) and "titlelink=off".
     (function () {
       var f = document.getElementById('h2ee');
